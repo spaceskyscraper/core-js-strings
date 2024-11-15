@@ -210,11 +210,6 @@ Error:
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 // 10. Task
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
-}
-
-/*
 function removeLastOccurrences(str, value) {
   if (str.lastIndexOf(value) === -1) {
     return str;
@@ -226,7 +221,6 @@ function removeLastOccurrences(str, value) {
     str.slice(indexOfLastOccurence + value.length)
   );
 }
-*/
 
 // console.log(removeLastOccurrences('To be or not to be', 'be')); => 'To be or not to '
 /*
@@ -247,6 +241,7 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
+// 11. Task
 function sumOfCodes(/* str */) {
   throw new Error('Not implemented');
 }
@@ -262,10 +257,11 @@ function sumOfCodes(/* str */) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+// 12. Task
+function startsWith(str, substr) {
+  return str.startsWith(substr);
 }
-
+// Method String.prototype.startsWith()
 /**
  * Checks if a string ends with a specific substring.
  *
@@ -277,10 +273,11 @@ function startsWith(/* str, substr */) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+// 13. Task
+function endsWith(str, substr) {
+  return str.endsWith(substr);
 }
-
+// Method String.prototype.endsWith()
 /**
  * Returns a time string in the "mm:ss" format.
  *

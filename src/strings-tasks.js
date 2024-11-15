@@ -179,9 +179,10 @@ function removeFirstOccurrences(str, value) {
   if (str.indexOf(value) === -1) {
     return str;
   }
-  const indexOfOccurence = str.indexOf(value);
+  const indexOfFirstOccurence = str.indexOf(value); // поправил название переменной на indexOfFirstOccurence - ибо в следующей задаче похожее решение, только с использованием метода lastIndexOf()
   return (
-    str.slice(0, indexOfOccurence) + str.slice(indexOfOccurence + value.length)
+    str.slice(0, indexOfFirstOccurence) +
+    str.slice(indexOfFirstOccurence + value.length)
   );
 }
 /*
@@ -208,9 +209,31 @@ Error:
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
+// 10. Task
 function removeLastOccurrences(/* str, value */) {
   throw new Error('Not implemented');
 }
+
+/*
+function removeLastOccurrences(str, value) {
+  if (str.lastIndexOf(value) === -1) {
+    return str;
+  }
+  const indexOfLastOccurence = str.lastIndexOf(value);
+
+  return (
+    str.slice(0, indexOfLastOccurence) +
+    str.slice(indexOfLastOccurence + value.length)
+  );
+}
+*/
+
+// console.log(removeLastOccurrences('To be or not to be', 'be')); => 'To be or not to '
+/*
+1. Как получить последний индекс элемента(буквы) в строке? - .lastIndexOf()
+2. Проверка на входе есть ли подстрока в строке(str) вообще
+3. Повторить решение из 9 таска
+*/
 
 /**
  * Calculate the sum of character codes of the given string.

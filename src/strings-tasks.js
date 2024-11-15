@@ -145,9 +145,22 @@ function removeTrailingWhitespaces(value) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+// 8. Task
+function repeatString(str, times) {
+  if (times <= 0) {
+    return '';
+  }
+  return str.repeat(times);
 }
+// console.log(repeatString('A', -2));
+/*
+1. Как повторять строку несколько раз? - метод .repeat()
+2. Что в него передавать? - параметр times
+
+repeatString should repeat string specified number of times:
+RangeError: Invalid count value: -2
+- Добавить if/else statement проверку на входящие значения.
+*/
 
 /**
  * Remove the first occurrence of a substring from a string.
@@ -161,9 +174,27 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+// 9. Task
+function removeFirstOccurrences(str, value) {
+  if (str.indexOf(value) === -1) {
+    return str;
+  }
+  const indexOfOccurence = str.indexOf(value);
+  return (
+    str.slice(0, indexOfOccurence) + str.slice(indexOfOccurence + value.length)
+  );
 }
+/*
+Error: 
+ AssertionError [ERR_ASSERTION]: 'The quick brown foe quick brown fox' == 'The quick brown fox'
+      + expected - actual
+
+      -The quick brown foe quick brown fox
+      +The quick brown fox
+
+  .indexOf() - возвращает индекс первой буквы в строке. Однако, если элемента не существует(подстроки в этом случае), то возвращаемое значение -1 - решение if/else statement проверка
+  Сначала делаем проверку на входное значение, чтобы не присваивать переменной того, чего не существует
+*/
 
 /**
  * Remove the last occurrence of a substring from a string.

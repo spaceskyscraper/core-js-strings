@@ -291,10 +291,47 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+// 14. Task
+function formatTime(minutes, seconds) {
+  return `${minutes.toString().padStart(2, '0')}:${seconds
+    .toString()
+    .padStart(2, '0')}`;
 }
 
+// console.log(formatTime(9, 50));
+
+/*
+1. Как конвертировать числа в строки? - toString
+2. Как конвертировать числовые строки в вид minutes:seconds? - нужно использовать конкатенацию строк + через цикл for по условию цикла добавлять постепенно параметры minutes, seconds
+-  297:27  error  Unary operator '++' used         no-plusplus
+  303:15  error  Unexpected string concatenation  prefer-template - скорее всего нужно использовать шаблонную строку
+
+  Не принимает данное решение -
+  function formatTime(minutes, seconds) {
+  let time = '0';
+
+  for (let i = 1; i <= 2; i++) {
+    if (i === 1) {
+      time += minutes;
+    }
+
+    if (i === 2) {
+      time += ':' + seconds;
+    }
+  }
+
+  return time;
+
+  Не принимает данное решение - 
+  const checkHowMuchDigitsAtSecondParam = seconds.toString().length;
+  if (checkHowMuchDigitsAtSecondParam !== 2) {
+    return `0${minutes}:${seconds}0`;
+  }
+  return `0${minutes}:${seconds}`;
+
+  - Нашел решение в mdn - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+}
+*/
 /**
  * Returns a string in reverse order.
  *
@@ -305,8 +342,9 @@ function formatTime(/* minutes, seconds */) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+// 15. Task
+function reverseString(str) {
+  return str.split('').reverse().join('');
 }
 
 /**
@@ -320,9 +358,13 @@ function reverseString(/* str */) {
  *   orderAlphabetically('textbook') => 'bekoottx'
  *   orderAlphabetically('abc123xyz') => '123abcxyz'
  */
-function orderAlphabetically(/* str */) {
-  throw new Error('Not implemented');
+// 16. Task
+function orderAlphabetically(str) {
+  return str.split('').sort().join('');
 }
+
+// console.log(orderAlphabetically('webmaster'));
+// .sort() - без значений переданных в метод, по-умолчанию сортирует в алфавитном порядке
 
 /**
  * Checks if a given string contains a specified substring.
@@ -336,8 +378,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
@@ -354,10 +396,14 @@ function containsSubstring(/* str, substring */) {
  *   countVowels('aEiOu') => 5
  *   countVowels('XYZ') => 1
  */
-function countVowels(/* str */) {
-  throw new Error('Not implemented');
+function countVowels(str) {
+  if (!/[aeiouy]/gi.test(str)) {
+    return 0;
+  }
+  return str.match(/[aeiouy]/gi).length;
 }
-
+// vowels - aeiouy(включительно)
+// console.log(countVowels('hmm'));
 /**
  * Returns true if the string is a palindrome; otherwise false.
  * https://en.wikipedia.org/wiki/Palindrome
